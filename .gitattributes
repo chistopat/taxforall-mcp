@@ -1,0 +1,2 @@
+# Generated bundles contain encoding tables with meaningful whitespace.
+plugins/taxforall-mcp/runtime/** linguist-generated=true -whitespace

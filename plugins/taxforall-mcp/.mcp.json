@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "taxforall-mcp": {
+      "command": "node",
+      "args": ["${CLAUDE_PLUGIN_ROOT}/run.mjs", "serve"]
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "taxforall-mcp",
+  "version": "0.1.0",
+  "description": "Read Cyprus tax returns and declared deductions. Local read-only Taxisnet adapter; Tax For All is planned.",
+  "mcpServers": "./codex.mcp.json",
+  "interface": {
+    "displayName": "TaxForAll",
+    "shortDescription": "Read Cyprus tax returns and deductions",
+    "developerName": "chistopat",
+    "category": "Productivity",
+    "capabilities": [
+      "Read"
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "taxforall",
+  "owner": { "name": "chistopat" },
+  "metadata": { "description": "Local read-only access to Cyprus tax records" },
+  "plugins": [
+    {
+      "name": "taxforall-mcp",
+      "source": "./plugins/taxforall-mcp",
+      "description": "Read Cyprus tax returns and declared deductions"
+    }
+  ]
+}

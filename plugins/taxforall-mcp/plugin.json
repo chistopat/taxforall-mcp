@@ -1,0 +1,23 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "taxforall-mcp",
+  "version": "0.1.0",
+  "description": "Read Cyprus tax returns and declared deductions through a local, read-only MCP server. Taxisnet legacy support; Tax For All is planned.",
+  "author": {
+    "name": "chistopat"
+  },
+  "repository": "https://github.com/chistopat/taxforall-mcp",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "TaxForAll",
+        "shortDescription": "Read Cyprus tax returns and deductions",
+        "developerName": "chistopat",
+        "category": "Productivity",
+        "capabilities": [
+          "Read"
+        ]
+      }
+    }
+  }
+}

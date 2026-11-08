@@ -1,0 +1,45 @@
+{
+  "name": "taxforall-mcp",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Read-only MCP for Cyprus tax records, with a legacy Taxisnet adapter and planned Tax For All support",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "login": "node --import tsx src/login.ts",
+    "test": "npm run build && npm run build:plugin && node --import tsx --test tests/*.test.ts",
+    "verify:live": "npm run build && node scripts/verify-live.mjs",
+    "github": "node scripts/github.mjs",
+    "check": "tsc --noEmit",
+    "build:plugin": "node scripts/build-plugin.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/server": "2.4.0",
+    "cheerio": "^1.2.0",
+    "tough-cookie": "^6.1.0",
+    "zod": "^4.0.0"
+  },
+  "devDependencies": {
+    "@modelcontextprotocol/client": "2.4.0",
+    "@types/node": "^22.0.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.0.0",
+    "esbuild": "0.28.2"
+  },
+  "bin": {
+    "taxforall-plugin": "scripts/plugin.mjs"
+  },
+  "files": [
+    "scripts/plugin.mjs",
+    "plugins/taxforall-mcp/",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chistopat/taxforall-mcp.git"
+  }
+}

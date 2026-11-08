@@ -28,7 +28,11 @@ if (action === 'install') {
     process.exit(1);
   }
   for (const client of host === 'both' ? ['codex', 'claude'] : [host]) {
-    run(client, ['plugin', '--help']);
+    const check = spawnSync(client, ['plugin', '--help'], { encoding: 'utf8', shell: false });
+    if (check.error || check.status !== 0) {
+      console.error(`Install a current ${client} CLI with plugin support and make sure it is on PATH.`);
+      process.exit(1);
+    }
   }
   for (const client of host === 'both' ? ['codex', 'claude'] : [host]) {
     run(client, ['plugin', 'marketplace', 'add', 'chistopat/taxforall-mcp']);
@@ -36,7 +40,7 @@ if (action === 'install') {
   }
   if (flags.includes('--login')) run(process.execPath, [runner, 'login', ...(flags.includes('--remember') ? ['--remember'] : [])]);
   console.log('TaxForAll installed. Start a new client session.');
-  if (!flags.includes('--login')) console.log('First use: run taxforall-plugin login (add --remember for macOS Keychain).');
+  if (!flags.includes('--login')) console.log('First use: npx --yes --package=github:chistopat/taxforall-mcp taxforall-plugin login (add --remember for macOS Keychain).');
 } else if (['login', 'serve'].includes(action)) {
   run(process.execPath, [runner, action, ...args]);
 } else {
